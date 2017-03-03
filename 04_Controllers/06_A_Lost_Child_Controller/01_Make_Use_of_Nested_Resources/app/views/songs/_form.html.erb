@@ -1,0 +1,25 @@
+<%= form_for @song do |f| %>
+  <%= f.hidden_field :album_id %>
+  <!-- ..... -->
+<% end %>
+
+<!-- refactoring -->
+
+<%= form_for [@album, @song] do |f| %>
+  <!-- ... -->
+  <% unless @album %>
+    <div class="field">
+      <%= f.label :album %><br />
+      <%= f.select(
+        :album_id,
+        options_from_collection_for_select(
+          Album.all,
+          :id,
+          :title,
+          @song.album_id
+        ),
+        { include_blank: true }
+      ) %>
+    </div>
+  <% end %>
+<% end %>

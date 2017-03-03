@@ -1,0 +1,3 @@
+<% if Portfolio.can_close_all? %>
+  <%= link_to "Close All", close_all_portfolios_url, method: :post %>
+<% end %>

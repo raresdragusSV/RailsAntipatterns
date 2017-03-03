@@ -1,0 +1,26 @@
+<h1>Messages<% if @user %> for <%= @user.name %><% end %></h1>
+
+<ul>
+  <% @messages.each do |message| %>
+    <%= content_tag_for :li, message do %>
+      <span class="subject"><%= message.subject %></span>
+      <% if !@user %>
+        <span class="poster">Posted by <%= message.user.name %></span>
+      <% end %>
+      <span class="body"><%= message.body %></span>
+    <% end %>
+  <% end %>
+</ul>
+
+<!-- refactoring -->
+
+<h1>Messages</h1>
+<ul>
+  <% @messages.each do |message| %>
+    <%= content_tag_for :li, @message do %>
+      <span class="subject"><%= message.subject %></span>
+      <span class="poster">Posted by <%= message.user.name %></span>
+      <span class="body"><%= message.body %></span>
+    <% end %>
+  <% end %>
+</ul>

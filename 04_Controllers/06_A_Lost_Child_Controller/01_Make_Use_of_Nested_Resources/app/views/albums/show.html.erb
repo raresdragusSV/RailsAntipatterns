@@ -1,0 +1,10 @@
+<h2><%= @album.title %></h2>
+<p>By: <%= @album.artist %></p>
+
+<ul>
+  <% @album.songs.each do |song| %>
+    <li><%= link_to song.title, song %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add song', new_song_url(album_id: @album.id) %>

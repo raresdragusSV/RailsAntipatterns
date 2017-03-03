@@ -1,0 +1,25 @@
+<div class="post" id="post_#{@post.id}" %>">
+  <h2 class="title">@post.title</h2>
+  <div class="body">@post.body</div>
+  <ol class="comments">
+    <% post.comments.each do |comment| %>
+      <li class="comment" id="comment_<%= comment.id %>">
+        <%= comment.body %>
+      </li>
+    <% end %>
+  </ol>
+</div>
+
+<!-- refactoring -->
+
+<%= div_for @post %>
+  <h2 class="title">@post.title</h2>
+  <div class="body">@post.body</div>
+  <ol class="comments">
+    <% post.comments.each do |comment| %>
+      <%= content_tag_for :li, comment do %>
+        <%= comment.body %>
+      <% end %>
+    <% end %>
+  </ol>
+<% end %>

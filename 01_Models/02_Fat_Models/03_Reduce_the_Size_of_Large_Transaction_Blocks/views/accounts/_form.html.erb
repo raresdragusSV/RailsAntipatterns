@@ -1,0 +1,13 @@
+<%= form_for @account do |form| %>
+  <%= form.label :name, 'Account name' %>
+  <%= form.text_field :name %>
+  <% fields_for :user, User.new do |user_form| %>
+    <%= user_form.label :name, 'User name' %>
+    <%= user_form.text_field :name %>
+    <%= user_form.label :email %>
+    <%= user_form.text_field :email %>
+    <%= user_form.label :password %>
+    <%= user_form.password_field :password %>
+  <% end %>
+  <%= form.submit 'Create', disable_with: 'Please wait ...' %>
+<% end %>

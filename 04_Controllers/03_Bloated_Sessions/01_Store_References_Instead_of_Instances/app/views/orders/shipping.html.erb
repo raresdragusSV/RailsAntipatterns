@@ -1,0 +1,16 @@
+<h2>Shipping Address</h2>
+<%= form_for @order, url: shipping_order_path, method: :post do |f| %>
+  <%= f.label :shipping_address %>
+  <%= f.text_field :shipping_address %>
+  <%= f.label :shipping_city %>
+  <%= f.text_field :shipping_city %>
+  <%= f.label :shipping_state %>
+  <%= f.text_field :shipping_state %>
+  <%= f.label :shipping_zip %>
+  <%= f.text_field :shipping_zip %>
+  <%= f.hidden_field :billing_address %>
+  <%= f.hidden_field :billing_city %>
+  <%= f.hidden_field :billing_state %>
+  <%= f.hidden_field :billing_zip %>
+  <%= f.submit %>
+<% end %>

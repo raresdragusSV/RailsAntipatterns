@@ -1,0 +1,21 @@
+<html>
+<body>
+  <ul class="nav">
+    <li><%= link_to "Home", root_url %></li>
+    <li><%= link_to "Maps", maps_url %></li>
+    <%= yield :nav %>
+  </ul>
+  <div class="main">
+      <%= yield %>
+  </div>
+</body>
+</html>
+
+<% content_for :nav do %>
+  <li>
+    <%= link_to "Your Account", account_url %>
+  </li>
+  <li>
+    <%= link_to "Your Maps", user_maps_url(current_user) %>
+  </li>
+<% end %>

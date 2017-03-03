@@ -1,0 +1,13 @@
+<ul>
+  <% User.find(order: 'last_name').each do |user| %>
+    <li><%= user.last_name %> <%= user.first_name %></li>
+  <% end %>
+</ul>
+
+<!-- Refactoring -->
+
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.last_name %> <%= user.first_name %></li>
+  <% end %>
+</ul>

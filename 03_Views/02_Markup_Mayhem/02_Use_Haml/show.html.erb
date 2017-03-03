@@ -1,0 +1,9 @@
+#blog
+  %div[@post]
+    %h2.title= @post.title
+    .body
+      Lorem ipsum dolor sit amet, consectetur...
+    %ol.comments
+      - @post.comments.each do |comment|
+        %li[comment]
+          = comment.body

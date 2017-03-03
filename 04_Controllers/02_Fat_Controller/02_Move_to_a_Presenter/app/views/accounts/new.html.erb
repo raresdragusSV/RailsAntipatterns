@@ -1,0 +1,26 @@
+<h1>New account</h1>
+
+<%= form_for(@account) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :subdomain %><br>
+    <%= f.text_field :subdomain %>
+  </p>
+
+  <%= fields_for(@user) do |u| %>
+    <%= u.error_messages %>
+
+    <p>
+      <%= u.label :email %><br>
+      <%= u.text_field :email %>
+    </p>
+    <p>
+      <%= u.label :password %><br>
+      <%= u.text_field :password %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>

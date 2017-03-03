@@ -1,0 +1,17 @@
+<div class="feed">
+  <% if @project %>
+    <%= link_to "Subscribe to #{@project.name} alerts.",
+                project_alerts_url(@project, format: :rss),
+                class: 'feed_link' %>
+  <% else %>
+    <%= link_to 'Subscribe to these alerts.',
+                alerts_url(format: :rss),
+                class: 'feed_link' %>
+  <% end %>
+</div>
+
+<!-- refactoring -->
+
+<div class="feed">
+  <%= rss_link(@project) %>
+</div>

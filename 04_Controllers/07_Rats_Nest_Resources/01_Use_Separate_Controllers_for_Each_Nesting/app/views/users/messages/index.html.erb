@@ -1,0 +1,9 @@
+<h1>Messages for <%= @user.name %></h1>
+<ul>
+  <% @messages.each do |message| %>
+    <%= content_tag_for :li, @message do %>
+      <span class="subject"><%= message.subject %></span>
+      <span class="body"><%= message.body %></span>
+    <% end %>
+  <% end %>
+</ul>

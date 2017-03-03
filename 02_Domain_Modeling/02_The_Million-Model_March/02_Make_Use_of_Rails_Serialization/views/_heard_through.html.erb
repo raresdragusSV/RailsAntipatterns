@@ -1,0 +1,6 @@
+<%= fields_for :heard_through, (form.object.heard_through || {}) do |heard_through| %>
+  <% User::HEARD_THROUGH_VALUES.each do |heard_through_val| %>
+    <%= heard_through_fields.check_box :field %>
+    <%= heard_through_fields.label :heard_through, heard_through_val %>
+  <% end %>
+<% end %>

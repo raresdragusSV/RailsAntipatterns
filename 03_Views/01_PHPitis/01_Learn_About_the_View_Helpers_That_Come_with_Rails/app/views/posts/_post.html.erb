@@ -1,0 +1,5 @@
+<h2><%= post.title %></h2>
+<%= format_content post.body %>
+<p>
+  <%= link_to 'Email author', mail_to(post.user.email) %>
+</p>
